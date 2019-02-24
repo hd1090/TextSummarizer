@@ -50,3 +50,24 @@ paths:
           description: "Successfully summarized"
         201:
           description: Successfully created person in list
+
+  /summarize/context:
+    post:
+      operationId: convert.context
+      summary: Creates a new user.
+      consumes:
+      - application/json
+      parameters:
+      - in: body
+        name: text
+        description: The user to create.
+        schema:
+          type: object
+          properties:
+            textData:
+              type: string
+      responses:
+        200:
+          description: "Successfully summarized"
+        201:
+          description: Successfully created person in list
