@@ -5,6 +5,7 @@ from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import networkx as nx
 from SpeechToText import translate
+import json
 
 
 
@@ -77,4 +78,4 @@ def summarize(audio_file):
             summarized_text.append(sentences[j])
 
 
-    return summarized_text
+    return "{ 'results' : " + summarized_text + "}"

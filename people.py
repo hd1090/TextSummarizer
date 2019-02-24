@@ -41,4 +41,5 @@ def read():
 
 def create():
     files =connexion.request.files
-    return summarize(files[''])
+    summary = summarize(files[''])
+    return summary

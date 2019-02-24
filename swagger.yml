@@ -19,6 +19,8 @@ paths:
       description: "Read the list of people"
       consumes:
         - "application/json"
+      produces:
+        - "application/json"
       responses:
         200:
           description: "Successful read people list operation"
@@ -40,11 +42,23 @@ paths:
       description: Create a new person in the people list
       consumes:
         - multipart/form-data
+      produces:
+        - "application/json"
       parameters:
         - in: formData
           name: file
           type: file
           description: The file to upload.
       responses:
+        200:
+          description: "Successfully summarized"
+          schema:
+            type: "array"
+            items:
+              properties:
+                results:
+                  type: "array"
+                  items:
+                    type: "string"
         201:
           description: Successfully created person in list
