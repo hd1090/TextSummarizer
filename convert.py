@@ -7,7 +7,7 @@ import json
 
 def audio():
     files =connexion.request.files
-    summary = summarize(files[''])
+    summary = summarize(files['upfile'])
     return summary
 
 

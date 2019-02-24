@@ -13,22 +13,17 @@ paths:
   /summarize/audio:
     post:
       operationId: convert.audio
-      summary: Create a person and add it to the people list
-      description: Create a new person in the people list
       consumes:
         - multipart/form-data
       produces:
         - "application/json"
       parameters:
         - in: formData
-          name: file
+          name: upfile
           type: file
-          description: The file to upload.
       responses:
         200:
           description: "Successfully summarized"
-        201:
-          description: Successfully created person in list
 
   /summarize/text:
     post:
