@@ -10,34 +10,9 @@ basePath: "/api"
 
 # Paths supported by the server application
 paths:
-  /people:
-    get:
-      operationId: "people.read"
-      tags:
-        - "People"
-      summary: "The people data structure supported by the server application"
-      description: "Read the list of people"
-      consumes:
-        - "application/json"
-      produces:
-        - "application/json"
-      responses:
-        200:
-          description: "Successful read people list operation"
-          schema:
-            type: "array"
-            items:
-              properties:
-                fname:
-                  type: "string"
-                lname:
-                  type: "string"
-                timestamp:
-                  type: "string"
+  /summarize/audio:
     post:
-      operationId: people.create
-      tags:
-      - people
+      operationId: convert.audio
       summary: Create a person and add it to the people list
       description: Create a new person in the people list
       consumes:
@@ -52,13 +27,26 @@ paths:
       responses:
         200:
           description: "Successfully summarized"
+        201:
+          description: Successfully created person in list
+
+  /summarize/text:
+    post:
+      operationId: convert.text
+      summary: Creates a new user.
+      consumes:
+        - application/json
+      parameters:
+        - in: body
+          name : text
+          description: The user to create.
           schema:
-            type: "array"
-            items:
-              properties:
-                results:
-                  type: "array"
-                  items:
-                    type: "string"
+            type: object
+            properties:
+              textData:
+                type: string
+      responses:
+        200:
+          description: "Successfully summarized"
         201:
           description: Successfully created person in list
