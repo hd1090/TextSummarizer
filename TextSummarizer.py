@@ -6,6 +6,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 import networkx as nx
 from SpeechToText import translate
 import re
+from Contextulizer import contextualize
 
 
 
@@ -27,8 +28,13 @@ def summarize(audio_file):
 
 
 def summarize_text(text):
+
+    context = contextualize(text)
+
     sentences = re.findall(r'(?:\d[,.]|[^,.])*(?:[,.]|$)', text)
-    return summarize_sentences(sentences)
+    summary = summarize_sentences(sentences)
+    context.append(summary)
+    return context
 
 
 
@@ -81,6 +87,9 @@ def summarize_sentences(sentences):
 
     if lowest == 0:
         lowest = len(sentences)
+
+    if lowest > 10:
+        lowest = 10
     for i in range(lowest):
         topwords.append(ranked_sentences[i][1])
 

@@ -40,5 +40,5 @@ def contextualize(text):
             filtered_stemmed.append(ps.stem(result[i]))
 
 
-
+    print(filtered_stemmed)
     return filtered_stemmed
