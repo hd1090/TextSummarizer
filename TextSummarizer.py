@@ -77,8 +77,11 @@ def summarize_sentences(sentences):
     summarized_text = []
     # Extract top 10 sentences as the summary
     topwords = []
+    lowest = int(len(sentences) / 3)
 
-    for i in range(int(len(sentences) / 3)):
+    if lowest == 0:
+        lowest = len(sentences)
+    for i in range(lowest):
         topwords.append(ranked_sentences[i][1])
 
     for j in range(len(sentences)):
