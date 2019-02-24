@@ -4,7 +4,7 @@ import pandas as pd
 from nltk.corpus import stopwords
 from sklearn.metrics.pairwise import cosine_similarity
 import networkx as nx
-from Summarizer.SpeechToText import translate
+from SpeechToText import translate
 
 
 

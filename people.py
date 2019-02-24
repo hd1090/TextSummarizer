@@ -1,6 +1,7 @@
 from datetime import datetime
 import connexion
-from Summarizer.TextSummarizer import summarize
+from TextSummarizer import summarize
+
 
 
 def get_timestamp():
