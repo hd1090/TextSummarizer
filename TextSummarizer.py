@@ -78,4 +78,4 @@ def summarize(audio_file):
             summarized_text.append(sentences[j])
 
 
-    return "{ 'results' : " + summarized_text + "}"
+    return "[{ 'results' : " + str(summarized_text) + "}]"
